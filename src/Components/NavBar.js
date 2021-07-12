@@ -1,9 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
-
+import { Icon } from "semantic-ui-react";
 const NavBar = () => {
   return (
     <div className="navBar">
       <Link to="/" id="logo">
+        <Icon name="camera" />
         <div>
           <h3>pictogram</h3>
         </div>

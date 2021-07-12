@@ -3,7 +3,7 @@ const Pictures = ({ pictures }) => {
     <div>
       {pictures.map((pic) => {
         return (
-          <div>
+          <div className="myPic">
             <img src={pic} alt="Ooops" />
           </div>
         );

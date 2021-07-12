@@ -47,6 +47,8 @@ h4 {
   border-bottom: solid;
 }
 #logo {
+  display: flex;
+  flex-direction: row;
   margin-left: 10%;
   align-self: center;
   color: rgb(46, 46, 46);
@@ -130,4 +132,16 @@ h4 {
 .canvas {
   align-items: center;
   text-align: center;
+}
+
+.myPic {
+  margin-top: 10px;
+  align-items: center;
+  text-align: center;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+.myPic img {
+  border: solid rgb(10, 10, 10) 2px;
 }
