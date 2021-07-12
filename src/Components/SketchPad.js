@@ -5,6 +5,7 @@ const SketchPad = ({ handleSave }) => {
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [canvas, setCanvas] = useState(null);
+  const [title, setTitle] = useState("");
 
   const [formData, setFormData] = useState({
     color: "",
@@ -16,6 +17,9 @@ const SketchPad = ({ handleSave }) => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+  const handleChange = (e) => {
+    setTitle(e.target.value);
   };
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const SketchPad = ({ handleSave }) => {
     contextRef.current.stroke();
     contextRef.current.save();
   };
-  console.log(canvas);
+
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -71,6 +75,13 @@ const SketchPad = ({ handleSave }) => {
   return (
     <div className="sketch">
       <StyleBar handleData={handleData} formData={formData} />
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        name="title"
+        onChange={handleChange}
+        placeholder=" Your Masterpiece"
+      />
       <canvas
         className="canvas"
         onMouseDown={startDrawing}
@@ -78,7 +89,7 @@ const SketchPad = ({ handleSave }) => {
         onMouseMove={draw}
         ref={canvasRef}
       />
-      <button onClick={handleSave}>Save</button>
+      <button onClick={(e) => handleSave(e, title)}>Save</button>
       <button onClick={clearCanvas}>Clear</button>
     </div>
   );
