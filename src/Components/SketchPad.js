@@ -12,6 +12,7 @@ const SketchPad = ({ formData, handleSave }) => {
     canvas.style.width = `${500}px`;
     canvas.style.height = `${500}px`;
     canvas.style.border = "3px solid black";
+    canvas.fillStyle = "white";
 
     const context = canvas.getContext("2d");
     context.scale(1, 1);
