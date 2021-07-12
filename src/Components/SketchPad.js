@@ -4,23 +4,29 @@ const SketchPad = ({ formData, handleSave }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [canvas, setCanvas] = useState(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    canvas.width = 500;
-    canvas.height = 500;
-    canvas.style.width = `${500}px`;
-    canvas.style.height = `${500}px`;
-    canvas.style.border = "3px solid black";
-    canvas.fillStyle = "white";
-
-    const context = canvas.getContext("2d");
-    context.scale(1, 1);
-    context.lineCap = "round";
-    context.strokeStyle = formData.color;
-    context.lineWidth = formData.stroke;
-    contextRef.current = context;
-  }, [formData.color, formData.stroke]);
+    const newCanvas = canvasRef.current;
+    newCanvas.width = 500;
+    newCanvas.height = 500;
+    newCanvas.style.width = `${500}px`;
+    newCanvas.style.height = `${500}px`;
+    newCanvas.style.border = "3px solid black";
+    newCanvas.fillStyle = "white";
+    setCanvas(newCanvas);
+  }, []);
+  useEffect(() => {
+    if (canvas) {
+      const context = canvas.getContext("2d");
+      context.scale(1, 1);
+      context.lineCap = "round";
+      context.strokeStyle = formData.color;
+      context.lineWidth = formData.stroke;
+      context.fillStyle = "white";
+      contextRef.current = context;
+    }
+  }, [canvas, formData.color, formData.stroke]);
 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
@@ -52,7 +58,7 @@ const SketchPad = ({ formData, handleSave }) => {
   };
 
   return (
-    <div>
+    <div className="sketch">
       <canvas
         onMouseDown={startDrawing}
         onMouseUp={endDrawing}

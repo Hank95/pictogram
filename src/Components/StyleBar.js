@@ -14,7 +14,7 @@ const StyleBar = ({ handleData, formData }) => {
             name="stroke"
             min="2"
             max="200"
-            // value={formData.stroke}
+            value={formData.stroke}
             onChange={handleData}
           />
         </li>

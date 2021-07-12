@@ -3,6 +3,7 @@ import "./App.css";
 import StyleBar from "./Components/StyleBar";
 import SketchPad from "./Components/SketchPad";
 import Pictures from "./Components/Pictures";
+import NavBar from "./Components/NavBar";
 
 function App() {
   const [pictures, setPictures] = useState([]);
@@ -29,10 +30,11 @@ function App() {
     const pic = e.target.previousSibling.toDataURL();
     setPictures([...pictures, pic]);
   };
-
+  console.log(pictures);
   return (
     <div className="App">
-      <StyleBar handleData={handleData} />
+      <NavBar />
+      <StyleBar handleData={handleData} formData={formData} />
       <SketchPad handleSave={handleSave} formData={formData} />
       <Pictures pictures={pictures} />
     </div>
