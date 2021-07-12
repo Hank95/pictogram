@@ -1,24 +1,12 @@
 import React, { useState } from "react";
-import "./App.css";
-import StyleBar from "./Components/StyleBar";
+import { Route, Switch } from "react-router-dom";
+import Home from "./Components/Home";
 import SketchPad from "./Components/SketchPad";
 import Pictures from "./Components/Pictures";
 import NavBar from "./Components/NavBar";
 
 function App() {
   const [pictures, setPictures] = useState([]);
-
-  const [formData, setFormData] = useState({
-    color: "",
-    stroke: 3,
-  });
-
-  const handleData = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const handleSave = (e) => {
     if (
@@ -34,9 +22,17 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <StyleBar handleData={handleData} formData={formData} />
-      <SketchPad handleSave={handleSave} formData={formData} />
-      <Pictures pictures={pictures} />
+      <Switch>
+        <Route
+          path="/sketch-pad"
+          component={() => <SketchPad handleSave={handleSave} />}
+        />
+        <Route
+          path="/my-sketchs"
+          component={() => <Pictures pictures={pictures} />}
+        />
+        <Route exact path="/" component={Home} />
+      </Switch>
     </div>
   );
 }

@@ -1,10 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-
-const SketchPad = ({ formData, handleSave }) => {
+import StyleBar from "./StyleBar";
+const SketchPad = ({ handleSave }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [canvas, setCanvas] = useState(null);
+
+  const [formData, setFormData] = useState({
+    color: "",
+    stroke: 3,
+  });
+
+  const handleData = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   useEffect(() => {
     const newCanvas = canvasRef.current;
@@ -47,9 +59,8 @@ const SketchPad = ({ formData, handleSave }) => {
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
     contextRef.current.save();
-    console.log(contextRef.current);
   };
-
+  console.log(canvas);
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -59,7 +70,9 @@ const SketchPad = ({ formData, handleSave }) => {
 
   return (
     <div className="sketch">
+      <StyleBar handleData={handleData} formData={formData} />
       <canvas
+        className="canvas"
         onMouseDown={startDrawing}
         onMouseUp={endDrawing}
         onMouseMove={draw}

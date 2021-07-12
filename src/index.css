@@ -46,10 +46,29 @@ h4 {
   grid-template-columns: 1fr 1fr;
   border-bottom: solid;
 }
+#logo {
+  margin-left: 10%;
+  align-self: center;
+  color: rgb(46, 46, 46);
+  font-size: 1.7rem;
+}
 .navButtons {
   align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.button {
+  border: solid black 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  color: black;
+  font-size: 1.2rem;
+}
+
+#home {
+  align-items: center;
+  text-align: center;
 }
 .sidebar {
   background-color: #333;
@@ -104,4 +123,11 @@ h4 {
 
 .sketch {
   margin-top: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.canvas {
+  align-items: center;
+  text-align: center;
 }
