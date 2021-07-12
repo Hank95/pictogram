@@ -43,6 +43,13 @@ const SketchPad = ({ formData, handleSave }) => {
     console.log(contextRef.current);
   };
 
+  const clearCanvas = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  };
+
   return (
     <div>
       <canvas
@@ -52,6 +59,7 @@ const SketchPad = ({ formData, handleSave }) => {
         ref={canvasRef}
       />
       <button onClick={handleSave}>Save</button>
+      <button onClick={clearCanvas}>Clear</button>
     </div>
   );
 };
