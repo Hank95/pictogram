@@ -51,9 +51,11 @@ function App() {
       method: "DELETE",
     });
   };
-  if (!token) {
-    return <Home feed={feed} />;
-  }
+  // if (!token) {
+  //   return (
+
+  //   <Home feed={feed} />);
+  // }
 
   return (
     <div className="App">
