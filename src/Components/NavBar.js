@@ -10,13 +10,13 @@ const NavBar = () => {
         </div>
       </Link>
       <nav className="navButtons">
-        <NavLink className="button" to="/">
+        <NavLink className="button1" to="/">
           Home
         </NavLink>
-        <NavLink className="button" to="/sketch-pad">
+        <NavLink className="button2" to="/sketch-pad">
           Sketch Pad
         </NavLink>
-        <NavLink className="button" to="/my-sketchs">
+        <NavLink className="button3" to="/my-sketchs">
           My Sketches
         </NavLink>
       </nav>

@@ -6,7 +6,7 @@ const Pictures = ({ pictures }) => {
       {pictures.map((pic) => {
         return (
           <div className="myPic">
-            <img src={pic} alt="Ooops" />
+            <img className="actualPic" src={pic} alt="Ooops" />
           </div>
         );
       })}
