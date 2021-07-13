@@ -54,7 +54,7 @@ function App() {
         />
         <Route
           path="/my-sketchs"
-          component={() => <Pictures pictures={pictures} />}
+          component={() => <Pictures user={user} feed={feed} />}
         />
         <Route exact path="/" component={() => <Home feed={feed} />} />
       </Switch>

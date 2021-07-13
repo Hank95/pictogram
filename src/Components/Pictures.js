@@ -1,14 +1,12 @@
-// import PictureCard from "./PictureCard";
+import PictureCard from "./PictureCard";
 
-const Pictures = ({ pictures }) => {
+const Pictures = ({ feed, user }) => {
+  const filteredPosts = feed.filter((post) => post.author === user);
   return (
     <div>
-      {pictures.map((pic) => {
-        return (
-          <div className="myPic">
-            <img className="actualPic" src={pic} alt="Ooops" />
-          </div>
-        );
+      <h1>My Art</h1>
+      {filteredPosts.map((pic) => {
+        return <PictureCard post={pic} />;
       })}
     </div>
   );
