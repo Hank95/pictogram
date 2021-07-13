@@ -42,6 +42,14 @@ function App() {
 
     setPictures([...pictures, pic]);
   };
+
+  const handleDelete = (id) => {
+    const newFeed = feed.filter((item) => item.id !== id);
+    setFeed(newFeed);
+    fetch(`http://localhost:3000/posts/${id}`, {
+      method: "DELETE",
+    });
+  };
   console.log(feed);
   console.log(pictures);
   return (
@@ -54,7 +62,9 @@ function App() {
         />
         <Route
           path="/my-sketchs"
-          component={() => <Pictures pictures={pictures} />}
+          component={() => (
+            <Pictures user={user} feed={feed} handleDelete={handleDelete} />
+          )}
         />
         <Route
           exact
