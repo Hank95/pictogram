@@ -9,6 +9,7 @@ function App() {
   const [pictures, setPictures] = useState([]);
   const [feed, setFeed] = useState([]);
   const [user, setUser] = useState("hank95");
+  const [token, setToken] = useState(false);
 
   useState(() => {
     fetch("http://localhost:3000/posts")
@@ -50,8 +51,10 @@ function App() {
       method: "DELETE",
     });
   };
-  console.log(feed);
-  console.log(pictures);
+  if (!token) {
+    return <Home feed={feed} />;
+  }
+
   return (
     <div className="App">
       <NavBar />

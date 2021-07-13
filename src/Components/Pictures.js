@@ -8,7 +8,7 @@ const Pictures = ({ feed, user, handleDelete }) => {
       <h1>My Art</h1>
       {filteredPosts.map((pic) => {
         return (
-          <div>
+          <div id="myPost">
             <PictureCard post={pic} />
             <Button
               onClick={pic.author === user ? () => handleDelete(pic.id) : null}
