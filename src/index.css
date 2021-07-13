@@ -223,7 +223,7 @@ body {
   color: rgb(0, 0, 0);
   position: fixed;
   z-index: 1000;
-  margin-top: 44px;
+  margin-top: 94px;
   height: 100%;
   background: linear-gradient(
     200deg,
@@ -307,6 +307,7 @@ body {
 .canvas {
   align-items: center;
   text-align: center;
+  margin-top: 120px;
 }
 
 .myPic {
