@@ -1,3 +1,5 @@
+// import PictureCard from "./PictureCard";
+
 const Pictures = ({ pictures }) => {
   return (
     <div>

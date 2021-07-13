@@ -1,14 +1,11 @@
+import PictureCard from "./PictureCard";
+
 const Home = ({ feed }) => {
+  console.log(feed);
   return (
-    <div>
+    <div id="feedList">
       {feed.map((post) => {
-        return (
-          <div>
-            <img src={post.image} alt={post.title} />
-            <h3>{post.title}</h3>
-            <p>By: {post.author}</p>
-          </div>
-        );
+        return <PictureCard post={post} />;
       })}
     </div>
   );

@@ -14,7 +14,7 @@ function App() {
     fetch("http://localhost:3000/posts")
       .then((res) => res.json())
       .then((json) => {
-        setFeed([...feed, json]);
+        setFeed(json);
       });
   }, []);
 
@@ -42,6 +42,7 @@ function App() {
 
     setPictures([...pictures, pic]);
   };
+  console.log(feed);
   console.log(pictures);
   return (
     <div className="App">
