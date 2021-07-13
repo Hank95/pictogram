@@ -72,27 +72,42 @@ const SketchPad = ({ handleSave }) => {
     context.fillRect(0, 0, canvas.width, canvas.height);
   };
 
+  const undoCanvas = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  };
+
   return (
     <div className="sketch">
       <StyleBar handleData={handleData} formData={formData} />
-      <div id="canvasContainer">
-        <label for="title">Title:</label>
-        <input
-          type="text"
-          name="title"
-          onChange={handleChange}
-          placeholder=" Your Masterpiece"
-        />
-        <canvas
-          className="canvas"
-          onMouseDown={startDrawing}
-          onMouseUp={endDrawing}
-          onMouseMove={draw}
-          ref={canvasRef}
-        />
-        <button onClick={(e) => handleSave(e, title)}>Save</button>
-        <button onClick={clearCanvas}>Clear</button>
-      </div>
+      <label className="title" for="title">
+        Title:
+      </label>
+      <input
+        className="inputField"
+        type="text"
+        name="title"
+        onChange={handleChange}
+        placeholder="Your Masterpiece"
+      />
+      <canvas
+        className="canvas"
+        onMouseDown={startDrawing}
+        onMouseUp={endDrawing}
+        onMouseMove={draw}
+        ref={canvasRef}
+      />
+      <button className="saveBtn" onClick={(e) => handleSave(e, title)}>
+        Save
+      </button>
+      <button className="clearBtn" onClick={clearCanvas}>
+        Clear
+      </button>
+      <button className="undoBtn" onClick={undoCanvas}>
+        Undo
+      </button>
     </div>
   );
 };
