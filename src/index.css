@@ -111,6 +111,30 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.ui.button.discard {
+  background-color: transparent;
+  right: 150px;
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  border-radius: 20px;
+  border: solid;
+}
+
+.ui.button.discard:hover {
+  align-items: center;
+  text-align: center;
+  background-image: url("../src/paintspray.gif");
+  background-image: rotate(270deg);
+  background-position: center;
+  background-repeat: repeat;
+  color: rgb(252, 252, 130);
+}
+
 .camera:hover {
   background-image: url("../src/paintspray.gif");
   background-repeat: repeat;
@@ -180,9 +204,10 @@ body {
 }
 
 .saveBtn {
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
+  margin: 1px;
 }
 
 .saveBtn:hover {
@@ -193,9 +218,10 @@ body {
 }
 
 .clearBtn {
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
+  margin: 1px;
 }
 
 .clearBtn:hover {
@@ -206,9 +232,10 @@ body {
 }
 
 .undoBtn {
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
+  margin: 1px;
 }
 
 .undoBtn:hover {
