@@ -155,7 +155,7 @@ h4 {
   position: absolute;
   /* left: 0;
   top: 0; */
-  height: 100vh;
+  height: 100%;
   padding: 5px;
   z-index: 1000;
 }
@@ -200,10 +200,14 @@ h4 {
 }
 
 .sketch {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   align-items: center;
   text-align: center;
 }
+/* #canvasContainer {
+  display: flex;
+  flex-direction: column;
+} */
 
 .canvas {
   align-items: center;

@@ -75,22 +75,24 @@ const SketchPad = ({ handleSave }) => {
   return (
     <div className="sketch">
       <StyleBar handleData={handleData} formData={formData} />
-      <label for="title">Title:</label>
-      <input
-        type="text"
-        name="title"
-        onChange={handleChange}
-        placeholder=" Your Masterpiece"
-      />
-      <canvas
-        className="canvas"
-        onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
-        onMouseMove={draw}
-        ref={canvasRef}
-      />
-      <button onClick={(e) => handleSave(e, title)}>Save</button>
-      <button onClick={clearCanvas}>Clear</button>
+      <div id="canvasContainer">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          name="title"
+          onChange={handleChange}
+          placeholder=" Your Masterpiece"
+        />
+        <canvas
+          className="canvas"
+          onMouseDown={startDrawing}
+          onMouseUp={endDrawing}
+          onMouseMove={draw}
+          ref={canvasRef}
+        />
+        <button onClick={(e) => handleSave(e, title)}>Save</button>
+        <button onClick={clearCanvas}>Clear</button>
+      </div>
     </div>
   );
 };
