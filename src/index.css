@@ -80,6 +80,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: solid;
+  float: inline-start;
+  z-index: 1000;
 }
 
 #home {
@@ -128,7 +130,7 @@ body {
 
 .button1 {
   border: solid black 2px;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 1rem;
   text-align: center;
   color: black;
@@ -138,13 +140,14 @@ body {
 .button1:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(180deg);
-  background-repeat: repeat;
-  color: rgb(252, 252, 130);
+  background-position: center;
+  background-repeat: none;
+  color: black;
 }
 
 .button2 {
   border: solid black 2px;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 1rem;
   text-align: center;
   color: black;
@@ -154,13 +157,14 @@ body {
 .button2:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(80deg);
-  background-repeat: repeat;
+  background-position: center;
+  background-repeat: none;
   color: rgb(252, 252, 130);
 }
 
 .button3 {
   border: solid black 2px;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 1rem;
   text-align: center;
   color: black;
@@ -170,6 +174,7 @@ body {
 .button3:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
+  background-position: center;
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
@@ -218,9 +223,8 @@ body {
   color: rgb(0, 0, 0);
   position: fixed;
   z-index: 1000;
-  margin-top: 38px;
+  margin-top: 41px;
   height: 100%;
-  position: absolute;
   background: linear-gradient(
     140deg,
     #f17c58,
@@ -237,7 +241,7 @@ body {
   animation-direction: alternate;
   background-repeat: repeat;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: right 5px;
   border-right: solid;
 }
 
@@ -318,6 +322,60 @@ body {
   margin-top: 120px;
 }
 
+.feedList {
+  right: 150px;
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  margin-top: 120px;
+  padding-bottom: 80px;
+}
+
+.Card {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ui.card,
+.ui.cards > .card {
+  background-color: goldenrod;
+  color: rgb(0, 0, 0);
+}
+
+.ui.card > .content > .header:hover,
+.ui.cards > .card > .content > .header:hover,
+.ui.card .meta:hover,
+.ui.cards > .card .meta:hover,
+.ui.card > .content > .description:hover,
+.ui.cards > .card > .content > .description,
+.ui.card > .likeButton,
+.ui.cards > .card > .likeButton:hover {
+  z-index: 1000;
+  background-image: url("../src/paintspray.gif");
+  background-repeat: repeat;
+  overflow: hidden;
+  border-radius: 5px;
+  border: solid, 3px;
+  color: rgb(252, 252, 130);
+}
+
+.ui.card > .content > .header,
+.ui.cards > .card > .content > .header,
+.ui.card .meta,
+.ui.cards > .card .meta,
+.ui.card > .content > .description,
+.ui.cards > .card > .content > .description > .ui.card > .likeButton,
+.ui.cards > .card > .content > .description > .likeButton {
+  background-color: transparent;
+  border-radius: 25px;
+  border: solid, 3px;
+  color: rgb(252, 252, 130);
+}
+
 .inputField {
   border-radius: 5px;
   border: solid, 3px;
@@ -367,15 +425,6 @@ body {
   animation-direction: alternate;
   background-repeat: repeat;
   overflow-y: scroll;
-}
-
-#feedList {
-  width: auto;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
 }
 
 @keyframes gradient {

@@ -56,7 +56,17 @@ function App() {
           path="/my-sketchs"
           component={() => <Pictures pictures={pictures} />}
         />
-        <Route exact path="/" component={() => <Home feed={feed} />} />
+        <Route
+          exact
+          path="/"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+          component={() => <Home feed={feed} />}
+        />
       </Switch>
     </div>
   );
