@@ -326,7 +326,18 @@ body {
   background-color: white;
   margin-top: 120px;
 }
-
+.myPicList {
+  right: 150px;
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  margin-top: 120px;
+  padding-bottom: 80px;
+}
 .feedList {
   right: 150px;
   width: auto;
