@@ -1,5 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
+import AuthNav from "./auth-nav";
 const NavBar = () => {
   return (
     <div className="navBar">
@@ -19,6 +20,8 @@ const NavBar = () => {
         <NavLink className="button3" to="/my-sketchs">
           My Sketches
         </NavLink>
+        <NavLink to="/login"></NavLink>
+        <AuthNav />
       </nav>
     </div>
   );

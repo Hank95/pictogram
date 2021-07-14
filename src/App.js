@@ -68,7 +68,11 @@ function App() {
         <Route
           path="/my-sketchs"
           component={() => (
-            <Pictures user={user} feed={feed} handleDelete={handleDelete} />
+            <Pictures
+              userInside={user}
+              feed={feed}
+              handleDelete={handleDelete}
+            />
           )}
         />
         <Route exact path="/" component={() => <Home feed={feed} />} />

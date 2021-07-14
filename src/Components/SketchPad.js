@@ -6,6 +6,8 @@ const SketchPad = ({ handleSave }) => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [canvas, setCanvas] = useState(null);
   const [title, setTitle] = useState("");
+  const [points, setPoints] = useState([]);
+  const [pathAry, setPathAry] = useState([]);
 
   const [formData, setFormData] = useState({
     color: "",
@@ -49,11 +51,12 @@ const SketchPad = ({ handleSave }) => {
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
-    console.log(offsetX, offsetY);
+    setPoints([]);
   };
   const endDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
+    setPathAry([...pathAry, points]);
   };
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
@@ -62,8 +65,32 @@ const SketchPad = ({ handleSave }) => {
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
-    contextRef.current.save();
+    setPoints([...points, { offsetX, offsetY }]);
   };
+
+  const drawPaths = () => {
+    // delete everything
+    contextRef.current.clearRect(0, 0, canvas.width, canvas.height);
+    // draw all the paths in the paths array
+    pathAry.forEach((path) => {
+      contextRef.current.beginPath();
+      contextRef.current.moveTo(path[0].offsetX, path[0].offsetY);
+      for (let i = 1; i < path.length; i++) {
+        contextRef.current.lineTo(path[i].offsetX, path[i].offsetY);
+      }
+      contextRef.current.stroke();
+    });
+  };
+
+  const Undo = () => {
+    // remove the last path from the paths array
+    pathAry.splice(-1, 1);
+    // draw all the paths in the paths array
+    drawPaths();
+  };
+
+  console.log(points);
+  console.log(pathAry);
 
   const clearCanvas = () => {
     const canvas = canvasRef.current;
@@ -105,7 +132,7 @@ const SketchPad = ({ handleSave }) => {
       <button className="clearBtn" onClick={clearCanvas}>
         Clear
       </button>
-      <button className="undoBtn" onClick={undoCanvas}>
+      <button className="undoBtn" onClick={Undo}>
         Undo
       </button>
     </div>
