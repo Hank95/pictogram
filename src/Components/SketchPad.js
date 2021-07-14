@@ -76,6 +76,9 @@ const SketchPad = ({ handleSave }) => {
       contextRef.current.beginPath();
       contextRef.current.moveTo(path[0].offsetX, path[0].offsetY);
       for (let i = 1; i < path.length; i++) {
+        contextRef.current.strokeStyle = path[i].formData.color;
+        contextRef.current.lineWidth = path[i].formData.stroke;
+
         contextRef.current.lineTo(path[i].offsetX, path[i].offsetY);
       }
       contextRef.current.stroke();
@@ -89,17 +92,7 @@ const SketchPad = ({ handleSave }) => {
     drawPaths();
   };
 
-  console.log(points);
-  console.log(pathAry);
-
   const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    context.fillStyle = "white";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-  };
-
-  const undoCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.fillStyle = "white";
