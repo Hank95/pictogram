@@ -9,12 +9,13 @@ const Pictures = ({ feed, user, handleDelete }) => {
       {filteredPosts.map((pic) => {
         return (
           <div>
-            <PictureCard post={pic} />
             <Button
+              className="discard"
               onClick={pic.author === user ? () => handleDelete(pic.id) : null}
             >
               Discard
             </Button>
+            <PictureCard post={pic} />
           </div>
         );
       })}
