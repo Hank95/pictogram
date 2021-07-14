@@ -3,7 +3,6 @@
   font-family: "Quicksand";
   font-weight: bold;
 }
-
 body {
   margin-top: 30px;
   background-color: white;
@@ -14,7 +13,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 canvas {
   background-color: #fff;
   display: flex;
@@ -23,7 +21,6 @@ canvas {
   margin-top: 15vh;
   text-align: center;
 }
-
 h4 {
   background-color: #fff;
   position: absolute;
@@ -34,13 +31,11 @@ h4 {
   text-align: center;
   user-select: none;
 }
-
 html,
 body {
   margin: 0;
   padding: 0;
 }
-
 .Appz {
   display: flex;
   flex-direction: column-reverse;
@@ -51,17 +46,6 @@ body {
   margin-top: 0vh;
   margin-bottom: 0vh;
 }
-/* .Appz:active . {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  scroll-behavior: smooth;
-  top: 0;
-  margin-top: 0vh;
-  margin-bottom: 0vh;
-} */
-
 .Appz:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
@@ -76,7 +60,9 @@ body {
   margin-top: 0vh;
   margin-bottom: 0vh;
 }
-
+.mySketches {
+  font-family: "Quicksand";
+}
 .navBar {
   width: 100%;
   height: 100%;
@@ -95,11 +81,10 @@ body {
   background-size: 1000% 100%;
   animation: gradient 20s linear infinite;
   animation-direction: alternate;
-  background-repeat: repeat; /* background-image: url("../src/gif.gif");
-  background-repeat: repeat; */
+  background-repeat: repeat;
   overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 10%;
   display: flex;
@@ -107,30 +92,24 @@ body {
   justify-content: space-between;
   align-items: right;
   padding-right: 10px;
-  /* grid-template-columns: 1fr 1fr; */
   border-bottom: solid;
   float: inline-start;
-
   flex-flow: row nowrap;
   z-index: 1000;
 }
-
 #home {
   align-items: center;
   text-align: center;
 }
-
 #logo {
-  /* background-image: url("../src/gif.gif");
-  background-repeat: repeat; */
   display: flex;
   flex-direction: row;
   margin-left: 10%;
   align-self: center;
   color: rgb(46, 46, 46);
   font-size: 1.7rem;
+  font-family: "Quicksand";
 }
-
 #logo:hover {
   background-image: url("../src/paintspray.gif");
   background-repeat: repeat;
@@ -138,10 +117,9 @@ body {
   -webkit-text-fill-color: transparent;
   text-align: center;
   font-weight: bold;
-
+  font-family: "Quicksand";
   -webkit-font-smoothing: antialiased;
 }
-
 .ui.button.discard {
   background-color: transparent;
   right: 150px;
@@ -158,7 +136,6 @@ body {
   border: solid;
   font-family: "Quicksand";
 }
-
 .ui.button.discard:hover {
   align-items: center;
   text-align: center;
@@ -168,7 +145,6 @@ body {
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
-
 .camera:hover {
   background-image: url("../src/paintspray.gif");
   background-repeat: repeat;
@@ -176,18 +152,13 @@ body {
   -webkit-text-fill-color: transparent;
   text-align: center;
   font-weight: bold;
-
   -webkit-font-smoothing: antialiased;
 }
-
 .navButtons {
   align-items: center;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
   flex-direction: row;
 }
-
 .button1 {
   border: solid black 2px;
   border-radius: 50px;
@@ -196,7 +167,6 @@ body {
   color: black;
   font-size: 1.2rem;
 }
-
 .button1:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(180deg);
@@ -204,7 +174,6 @@ body {
   background-repeat: none;
   color: black;
 }
-
 .button2 {
   border: solid black 2px;
   border-radius: 50px;
@@ -213,7 +182,6 @@ body {
   color: black;
   font-size: 1.2rem;
 }
-
 .button2:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(80deg);
@@ -221,7 +189,6 @@ body {
   background-repeat: none;
   color: rgb(252, 252, 130);
 }
-
 .button3 {
   border: solid black 2px;
   border-radius: 50px;
@@ -230,7 +197,6 @@ body {
   color: black;
   font-size: 1.2rem;
 }
-
 .button3:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
@@ -238,49 +204,47 @@ body {
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
-
 .saveBtn {
   border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
   margin: 1px;
+  font-family: "Quicksand";
 }
-
 .saveBtn:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
   color: rgb(252, 252, 130);
+  font-family: "Quicksand";
 }
-
 .clearBtn {
   border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
   margin: 1px;
+  font-family: "Quicksand";
 }
-
 .clearBtn:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
   color: rgb(252, 252, 130);
+  font-family: "Quicksand";
 }
-
 .undoBtn {
   border-radius: 20px;
   border: solid, 3px;
   background-color: transparent;
   margin: 1px;
+  font-family: "Quicksand";
 }
-
 .undoBtn:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
-
 .sidebar {
   scroll-behavior: none;
   color: rgb(0, 0, 0);
@@ -310,7 +274,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .sidebar ul {
   display: flex;
   justify-content: center;
@@ -322,22 +285,18 @@ body {
   height: 100%;
   margin-top: 10%;
 }
-
 .sidebar ul li {
   padding: 5px 0;
   padding-bottom: 10px;
 }
-
 .sidebar input,
 .sidebar button {
   text-align: center;
   width: 45px;
 }
-
 .sidebar li:last-of-type {
   margin-top: auto;
 }
-
 .sidebar li:hover {
   background: url("../src/paint1.gif") right bottom no-repeat,
     url("../src/paint2.gif") top repeat;
@@ -350,42 +309,30 @@ body {
   padding-top: 5px;
   padding-bottom: 10px;
 }
-
 .sidebar button {
   background-color: transparent;
   border: none;
   color: #fff;
   font-size: 20px;
 }
-
 .sidebar label {
   display: block;
   font-size: 12px;
   margin-bottom: 3px;
 }
-
 .sketch {
-  /* margin-top: 50px; */
   align-items: center;
   text-align: center;
 }
-/* #canvasContainer {
-  display: flex;
-  flex-direction: column;
-} */
-
 .myPic {
   margin-top: 10px;
   align-items: center;
   text-align: center;
   scroll-behavior: smooth;
-  /* overflow-y: scroll; */
 }
-
 .myPic img {
   border: solid rgb(10, 10, 10) 2px;
 }
-
 .actualPic {
   background-color: white;
   margin-top: 120px;
@@ -415,18 +362,15 @@ body {
   margin-top: 120px;
   padding-bottom: 80px;
 }
-
 .Card {
   text-align: center;
   font-weight: bold;
 }
-
 .ui.card,
 .ui.cards > .card {
   background-color: goldenrod;
   color: rgb(0, 0, 0);
 }
-
 .ui.card > .content > .header:hover,
 .ui.cards > .card > .content > .header:hover,
 .ui.card .meta:hover,
@@ -444,7 +388,6 @@ body {
   color: rgb(252, 252, 130);
   font-family: "Quicksand";
 }
-
 .ui.card > .content > .header,
 .ui.cards > .card > .content > .header,
 .ui.card .meta,
@@ -458,36 +401,30 @@ body {
   color: rgb(252, 252, 130);
   font-family: "Quicksand";
 }
-
 .inputField {
   border-radius: 5px;
   border: solid, 3px;
   background-color: transparent;
 }
-
 .inputField.placeholder {
   color: rgb(10, 10, 10);
 }
-
 .inputField:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
-
 .title {
   font-size: 20px;
   text-emphasis: bold;
 }
-
 .title:hover {
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
   color: rgb(252, 252, 130);
 }
-
 .wrapper {
   width: 100%;
   height: 100%;
@@ -509,7 +446,6 @@ body {
   background-repeat: repeat;
   overflow-y: scroll;
 }
-
 @keyframes gradient {
   0% {
     background-position: 0%;
@@ -518,7 +454,6 @@ body {
     background-position: 100%;
   }
 }
-
 @font-face {
   font-family: "Quicksand";
   src: url(../src/Quicksand/static/Quicksand-Bold.ttf);

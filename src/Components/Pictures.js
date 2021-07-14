@@ -5,7 +5,7 @@ const Pictures = ({ feed, user, handleDelete }) => {
   const filteredPosts = feed.filter((post) => post.author === user);
   return (
     <div className="myPicList">
-      <h1>My Sketches</h1>
+      <h1 className="mySketches">My Sketches</h1>
       {filteredPosts.map((pic) => {
         return (
           <div>
