@@ -65,7 +65,7 @@ const SketchPad = ({ handleSave }) => {
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
-    setPoints([...points, { offsetX, offsetY }]);
+    setPoints([...points, { offsetX, offsetY, formData }]);
   };
 
   const drawPaths = () => {
@@ -102,32 +102,36 @@ const SketchPad = ({ handleSave }) => {
   return (
     <div className="sketch">
       <StyleBar handleData={handleData} formData={formData} />
-      <label className="title" for="title">
-        Title:
-      </label>
-      <input
-        className="inputField"
-        type="text"
-        name="title"
-        onChange={handleChange}
-        placeholder="Your Masterpiece"
-      />
-      <canvas
-        className="canvas"
-        onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
-        onMouseMove={draw}
-        ref={canvasRef}
-      />
-      <button className="saveBtn" onClick={(e) => handleSave(e, title)}>
-        Save
-      </button>
-      <button className="clearBtn" onClick={clearCanvas}>
-        Clear
-      </button>
-      <button className="undoBtn" onClick={Undo}>
-        Undo
-      </button>
+      <div id="sketchContainer">
+        <canvas
+          className="canvas"
+          onMouseDown={startDrawing}
+          onMouseUp={endDrawing}
+          onMouseMove={draw}
+          ref={canvasRef}
+        />
+        <div id="canvasControls">
+          <label className="title" for="title">
+            Title:
+          </label>
+          <input
+            className="inputField"
+            type="text"
+            name="title"
+            onChange={handleChange}
+            placeholder="Your Masterpiece"
+          />
+          <button className="saveBtn" onClick={(e) => handleSave(e, title)}>
+            Save
+          </button>
+          <button className="clearBtn" onClick={clearCanvas}>
+            Clear
+          </button>
+          <button className="undoBtn" onClick={Undo}>
+            Undo
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
