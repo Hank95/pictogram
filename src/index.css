@@ -47,6 +47,7 @@ body {
   margin-bottom: 0vh;
 }
 .Appz:hover {
+  border-radius: 15px;
   background-image: url("../src/paintspray.gif");
   background-image: rotate(270deg);
   background-repeat: repeat;
@@ -368,6 +369,7 @@ body {
 }
 .ui.card,
 .ui.cards > .card {
+  border-radius: 20px;
   background-color: goldenrod;
   color: rgb(0, 0, 0);
 }
@@ -379,6 +381,7 @@ body {
 .ui.cards > .card > .content > .description,
 .ui.card > .likeButton,
 .ui.cards > .card > .likeButton:hover {
+  border-radius: 20px;
   z-index: 1000;
   background-image: url("../src/paintspray.gif");
   background-repeat: repeat;
