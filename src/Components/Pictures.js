@@ -5,17 +5,18 @@ const Pictures = ({ feed, user, handleDelete }) => {
   const filteredPosts = feed.filter((post) => post.author === user);
   return (
     <div className="myPicList">
-      <h1>My Art</h1>
+      <h1>My Sketches</h1>
       {filteredPosts.map((pic) => {
         return (
           <div>
+            <PictureCard post={pic} />
             <Button
               className="discard"
+              style={{ fontfamily: "Lora" }}
               onClick={pic.author === user ? () => handleDelete(pic.id) : null}
             >
               Discard
             </Button>
-            <PictureCard post={pic} />
           </div>
         );
       })}
