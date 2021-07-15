@@ -10,9 +10,8 @@ function App() {
     setClick(!isClick);
   }
 
-  console.log(count);
   return (
-    <div className="App">
+    <div className="Appz">
       <p className="Counter">{count}</p>
       <Heart className="Heart" isClick={isClick} onClick={handleClick} />
     </div>

@@ -34,6 +34,7 @@ app.post("/api/insert", (req, res) => {
     "INSERT INTO user_posts (title, author, image, datePosted) VALUE (?,?,?,?)";
   db.query(sqlInsert, [title, author, image, datePosted], (err, result) => {
     console.log(err, result);
+    res.json(result);
   });
 });
 

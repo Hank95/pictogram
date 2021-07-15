@@ -10,15 +10,15 @@ const SketchPad = ({ handleSave }) => {
   const [pathAry, setPathAry] = useState([]);
 
   const [formData, setFormData] = useState({
-    color: "",
+    color: "black",
     stroke: 3,
   });
 
   const handleData = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prevState) => ({
+      ...prevState,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -56,7 +56,7 @@ const SketchPad = ({ handleSave }) => {
   const endDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
-    setPathAry([...pathAry, points]);
+    setPathAry((prevState) => [...prevState, points]);
   };
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
@@ -65,14 +65,15 @@ const SketchPad = ({ handleSave }) => {
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
-    setPoints([...points, { offsetX, offsetY, formData }]);
+    // setPoints([...points, { offsetX, offsetY, formData }]);
+    setPoints((prevState) => [...prevState, { offsetX, offsetY, formData }]);
   };
 
-  const drawPaths = () => {
+  const drawPaths = (newPathAry) => {
     // delete everything
     contextRef.current.clearRect(0, 0, canvas.width, canvas.height);
     // draw all the paths in the paths array
-    pathAry.forEach((path) => {
+    newPathAry.forEach((path) => {
       contextRef.current.beginPath();
       contextRef.current.moveTo(path[0].offsetX, path[0].offsetY);
       for (let i = 1; i < path.length; i++) {
@@ -83,13 +84,21 @@ const SketchPad = ({ handleSave }) => {
       }
       contextRef.current.stroke();
     });
+    contextRef.current.strokeStyle = formData.color;
+    contextRef.current.lineWidth = formData.stroke;
   };
+
+  useEffect(() => {}, [pathAry]);
+
+  useEffect(() => {}, [formData]);
 
   const Undo = () => {
     // remove the last path from the paths array
-    pathAry.splice(-1, 1);
+
+    const newPathAry = pathAry.slice(0, -1);
+    setPathAry(newPathAry);
     // draw all the paths in the paths array
-    drawPaths();
+    drawPaths(newPathAry);
   };
 
   const clearCanvas = () => {
@@ -111,7 +120,7 @@ const SketchPad = ({ handleSave }) => {
           ref={canvasRef}
         />
         <div id="canvasControls">
-          <label className="title" for="title">
+          <label className="title" htmlFor="title">
             Title:
           </label>
           <input

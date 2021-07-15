@@ -37,12 +37,10 @@ function App() {
       author: user,
       image: pic,
       datePosted: curDate,
-    }).then(() => {
-      setFeed(...feed, {
-        title: title,
-        author: user,
-        image: pic,
-        datePosted: curDate,
+    }).then((res) => {
+      console.log(res);
+      Axios.get("http://localhost:3001/api/get").then((response) => {
+        setFeed(response.data);
       });
     });
   };
@@ -57,7 +55,6 @@ function App() {
       );
     });
   };
-
   return (
     <div className="App">
       <NavBar />
