@@ -5,13 +5,10 @@ import Home from "./Components/Home";
 import SketchPad from "./Components/SketchPad";
 import Pictures from "./Components/Pictures";
 import NavBar from "./Components/NavBar";
-import Loading from "./Components/loading";
-// import { useAuth0 } from "@auth0/auth0-react";
-// import ProtectedRoute from "./auth/protected-route";
 
 function App() {
   const [feed, setFeed] = useState([]);
-  const [user, setUser] = useState("hank95");
+  const [user, setUser] = useState("");
 
   useState(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
@@ -55,6 +52,39 @@ function App() {
       );
     });
   };
+
+  const nameGrabber = (nameInput) => {
+    setUser(nameInput);
+  };
+  const [nameInput, setNameInput] = useState("");
+  const handleUpdate = (e) => {
+    setNameInput(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    nameGrabber(nameInput);
+    console.log(nameInput);
+  };
+
+  if (!user) {
+    return (
+      <div>
+        <h1>Who are you?</h1>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              onChange={handleUpdate}
+              placeholder="Username"
+              value={nameInput}
+            />
+            <input type="submit" value="login" className="button3" />
+          </form>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="App">
       <NavBar />
@@ -70,6 +100,7 @@ function App() {
               userInside={user}
               feed={feed}
               handleDelete={handleDelete}
+              nameGrabber={nameGrabber}
             />
           )}
         />
