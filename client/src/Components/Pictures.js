@@ -28,11 +28,16 @@ const Pictures = ({ feed, userInside, handleDelete }) => {
       </div>
       <h1>My Art</h1>
       {filteredPosts.map((pic) => {
+        console.log(pic);
         return (
           <div>
             <Button
               className="discard"
-              onClick={pic.author === user ? () => handleDelete(pic.id) : null}
+              onClick={
+                pic.author === userInside
+                  ? () => handleDelete(pic.iduser_posts)
+                  : null
+              }
             >
               Discard
             </Button>
