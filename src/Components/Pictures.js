@@ -12,7 +12,6 @@ const Pictures = ({ feed, user, handleDelete }) => {
             <PictureCard post={pic} />
             <Button
               className="discard"
-              style={{ fontfamily: "Lora" }}
               onClick={pic.author === user ? () => handleDelete(pic.id) : null}
             >
               Discard

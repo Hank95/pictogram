@@ -1,9 +1,8 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 import LikeButton from "./LikeButton";
 
 const PictureCard = (post) => {
-  console.log(post.post);
   return (
     <Card className="Card">
       <Image src={post.post.image} wrapped ui={false} />

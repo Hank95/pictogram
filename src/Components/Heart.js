@@ -10,7 +10,6 @@ function App() {
     setClick(!isClick);
   }
 
-  console.log(count);
   return (
     <div className="Appz">
       <p className="Counter">{count}</p>

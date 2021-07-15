@@ -3,11 +3,11 @@ const StyleBar = ({ handleData, formData }) => {
     <div className="sidebar">
       <ul>
         <li>
-          <label for="color">Color:</label>
+          <label htmlFor="color">Color:</label>
           <input type="color" id="color" name="color" onChange={handleData} />
         </li>
         <li>
-          <label for="weight">Stroke:</label>
+          <label htmlFor="weight">Stroke:</label>
           <input
             type="number"
             id="weight"

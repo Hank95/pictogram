@@ -50,8 +50,6 @@ function App() {
       method: "DELETE",
     });
   };
-  console.log(feed);
-  console.log(pictures);
   return (
     <div className="App">
       <NavBar />
