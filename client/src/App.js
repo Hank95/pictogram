@@ -6,8 +6,8 @@ import SketchPad from "./Components/SketchPad";
 import Pictures from "./Components/Pictures";
 import NavBar from "./Components/NavBar";
 import Loading from "./Components/loading";
-import { useAuth0 } from "@auth0/auth0-react";
-import ProtectedRoute from "./auth/protected-route";
+// import { useAuth0 } from "@auth0/auth0-react";
+// import ProtectedRoute from "./auth/protected-route";
 
 function App() {
   const [feed, setFeed] = useState([]);
@@ -19,10 +19,10 @@ function App() {
     });
   }, []);
 
-  const { isLoading } = useAuth0();
-  if (isLoading) {
-    return <Loading />;
-  }
+  // const { isLoading } = useAuth0();
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
   const handleSave = (e, title) => {
     if (
       e.target.parentElement.previousSibling.toDataURL() ===
@@ -49,11 +49,6 @@ function App() {
 
   const handleDelete = (id) => {
     console.log(id);
-    // const newFeed = feed.filter((item) => item.id !== id);
-    // setFeed(newFeed);
-    // fetch(`/api/${id}`, {
-    //   method: "DELETE",
-    // });
     Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
       setFeed(
         feed.filter((val) => {
@@ -71,7 +66,7 @@ function App() {
           path="/sketch-pad"
           component={() => <SketchPad handleSave={handleSave} user={user} />}
         />
-        <ProtectedRoute
+        <Route
           path="/my-sketchs"
           component={() => (
             <Pictures

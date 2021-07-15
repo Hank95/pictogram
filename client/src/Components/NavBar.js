@@ -20,8 +20,8 @@ const NavBar = () => {
         <NavLink className="button3" to="/my-sketchs">
           My Sketches
         </NavLink>
-        {/* <NavLink className="button3" to="/login"></NavLink> */}
-        <AuthNav className="button3" />
+        {/* <NavLink className="button3" to="/login"></NavLink>
+        <AuthNav className="button3" /> */}
       </nav>
     </div>
   );
