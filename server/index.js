@@ -16,7 +16,7 @@ const db = mysql.createPool({
 
 app.use(cors());
 app.use(express.json());
-require("dotenv").config({ path: __dirname + "/.env" });
+// require("dotenv").config({ path: __dirname + "/.env" });
 
 app.get("/api/get", (req, res) => {
   const sqlSelect = "SELECT * FROM user_posts";
